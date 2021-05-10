@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="dual_core" location="C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_core" platform="C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_core_hw/export/dual_core_hw/dual_core_hw.xpfm" platformUID="xilinx:zed::0.0(custom)" systemProject="dual_core_system" sysConfig="dual_core_hw" runtime="C/C++" cpu="standalone_domain" cpuInstance="ps7_cortexa9_0" os="standalone" mssSignature="162417da23046f4c08adc1ada4357d20">
+  <configuration name="Debug" id="xilinx.gnu.armv7.exe.debug.1730231749">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.armv7.exe.release.43873603" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

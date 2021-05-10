@@ -1,0 +1,187 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Apr  9 16:21:27 2021
+# Process ID: 15564
+# Current directory: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14804 C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.xpr
+# Log file: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/vivado.log
+# Journal file: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:34 ; elapsed = 00:00:20 . Memory (MB): peak = 1082.137 ; gain = 0.000
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Fri Apr  9 16:23:04 2021] Launched synth_1...
+Run output will be captured here: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/synth_1/runme.log
+[Fri Apr  9 16:23:05 2021] Launched impl_1...
+Run output will be captured here: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 1082.137 ; gain = 0.000
+update_compile_order -fileset sources_1
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1401.086 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1411 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'design_1_i/clk_wiz_0/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2187.199 ; gain = 2.855
+Restored from archive | CPU: 6.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2187.199 ; gain = 2.855
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 2187.199 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 242 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRL16E, SRLC32E): 112 instances
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 1 instance 
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 113 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 14 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 2 instances
+
+open_run: Time (s): cpu = 00:01:16 ; elapsed = 00:00:58 . Memory (MB): peak = 2358.016 ; gain = 1275.879
+open_report: Time (s): cpu = 00:00:24 ; elapsed = 00:00:18 . Memory (MB): peak = 2941.555 ; gain = 0.000
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+write_hw_platform -fixed -include_bit -force -file C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa
+INFO: [Vivado 12-4895] Creating Hardware Platform: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa ...
+INFO: [Hsi 55-2053] elapsed time for repository (C:/Xilinx/Vivado/2020.2/data\embeddedsw) loading 0 seconds
+INFO: [Vivado 12-12467] The Hardware Platform can be used for Hardware
+INFO: [Vivado 12-4896] Successfully created Hardware Platform: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa
+write_hw_platform: Time (s): cpu = 00:00:11 ; elapsed = 00:00:09 . Memory (MB): peak = 2941.555 ; gain = 0.000
+INFO: [Vivado 12-8231] Launching Vitis
+INFO: [Vivado 12-417] Running vitis
+INFO: [Vivado 12-8232] Vitis launch initiated. Please check console for any further messages.
+open_bd_design {C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:user:myI2STx:1.0 - myI2STx_0
+Adding component instance block -- xilinx.com:user:myPrescaler:1.0 - myPrescaler_0
+Adding component instance block -- xilinx.com:user:mySPIRxTx:1.0 - mySPIRxTx_0
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Adding component instance block -- xilinx.com:user:myPrescaler:1.0 - myPrescaler_1
+Adding component instance block -- xilinx.com:ip:axi_fifo_mm_s:4.2 - axi_fifo_mm_s_0
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - smartconnect_0
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_clk_wiz_0_50M
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_0
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_1
+Adding component instance block -- xilinx.com:ip:xlslice:1.0 - xlslice_2
+Adding component instance block -- xilinx.com:user:lfsr_7:1.0 - lfsr_7_0
+Adding component instance block -- xilinx.com:module_ref:Asteroid_graph_animate:1.0 - Asteroid_graph_anima_0
+Adding component instance block -- xilinx.com:module_ref:Asteroid_Menu:1.0 - Asteroid_Menu_0
+Adding component instance block -- xilinx.com:module_ref:vga_sync:1.0 - vga_sync_0
+Adding component instance block -- xilinx.com:user:GPU_controller:2.0 - GPU_controller_0
+Successfully read diagram <design_1> from block design file <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:22 . Memory (MB): peak = 2941.555 ; gain = 0.000
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_1
+endgroup
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sws_8bits ( DIP switches ) } Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_1/GPIO]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /axi_gpio_1]
+INFO: [board_rule 100-100] set_property CONFIG.GPIO_BOARD_INTERFACE sws_8bits [get_bd_cells /axi_gpio_1]
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 sws_8bits
+INFO: [BoardRule 102-9] connect_bd_intf_net /sws_8bits /axi_gpio_1/GPIO
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_1/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_1/S_AXI]
+Slave segment '/axi_gpio_1/S_AXI/Reg' is being assigned into address space '/processing_system7_0/Data' at <0x4121_0000 [ 64K ]>.
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1}] [get_bd_cells axi_gpio_1]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlconcat:2.1 xlconcat_0
+endgroup
+set_property location {2 471 977} [get_bd_cells xlconcat_0]
+connect_bd_net [get_bd_pins axi_gpio_1/ip2intc_irpt] [get_bd_pins xlconcat_0/In0]
+set_property location {2 463 1331} [get_bd_cells axi_gpio_0]
+delete_bd_objs [get_bd_nets axi_gpio_0_ip2intc_irpt]
+connect_bd_net [get_bd_pins axi_gpio_0/ip2intc_irpt] [get_bd_pins xlconcat_0/In1]
+set_property location {7 3412 1292} [get_bd_cells xlconcat_0]
+set_property location {7 3467 638} [get_bd_cells xlconcat_0]
+connect_bd_net [get_bd_pins xlconcat_0/dout] [get_bd_pins processing_system7_0/IRQ_F2P]
+regenerate_bd_layout
+validate_bd_design
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+xit::source_ipfile: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2966.914 ; gain = 25.359
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+validate_bd_design: Time (s): cpu = 00:01:23 ; elapsed = 00:01:31 . Memory (MB): peak = 2976.406 ; gain = 34.852
+save_bd_design
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_processing_system7_0_0_synth_1
+reset_run design_1_xbar_1_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+VHDL Output written to : c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_GP0'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI_GP0'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+Exporting to file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/hw_handoff/design_1_smartconnect_0_0.hwh
+Generated Block Design Tcl file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/hw_handoff/design_1_smartconnect_0_0_bd.tcl
+Generated Hardware Definition File c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/synth/design_1_smartconnect_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block smartconnect_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+Exporting to file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_auto_pc_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_axi_gpio_1_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_processing_system7_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_smartconnect_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_xbar_1
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = db7e160575667fbe; cache size = 60.646 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_smartconnect_0_0, cache-ID = a5d7168a5d04fd04; cache size = 60.646 MB.
+config_ip_cache: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 3072.398 ; gain = 5.270
+[Fri Apr  9 20:17:33 2021] Launched design_1_processing_system7_0_0_synth_1, design_1_xbar_1_synth_1, design_1_axi_gpio_1_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_processing_system7_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_processing_system7_0_0_synth_1/runme.log
+design_1_xbar_1_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_xbar_1_synth_1/runme.log
+design_1_axi_gpio_1_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_axi_gpio_1_0_synth_1/runme.log
+synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/synth_1/runme.log
+[Fri Apr  9 20:17:33 2021] Launched impl_1...
+Run output will be captured here: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:11 ; elapsed = 00:01:26 . Memory (MB): peak = 3072.398 ; gain = 56.895
+write_hw_platform -fixed -include_bit -force -file C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa
+INFO: [Vivado 12-4895] Creating Hardware Platform: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa ...
+INFO: [Vivado 12-12467] The Hardware Platform can be used for Hardware
+INFO: [Vivado 12-4896] Successfully created Hardware Platform: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa
+write_hw_platform: Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 3268.617 ; gain = 190.078
+INFO: [Vivado 12-8231] Launching Vitis
+INFO: [Vivado 12-417] Running vitis
+INFO: [Vivado 12-8232] Vitis launch initiated. Please check console for any further messages.
+write_hw_platform -fixed -include_bit -force -file C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa
+INFO: [Vivado 12-4895] Creating Hardware Platform: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa ...
+INFO: [Vivado 12-12467] The Hardware Platform can be used for Hardware
+INFO: [Vivado 12-4896] Successfully created Hardware Platform: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/design_1_wrapper.xsa
+write_hw_platform: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 3292.250 ; gain = 13.383
+INFO: [Vivado 12-8231] Launching Vitis
+INFO: [Vivado 12-417] Running vitis
+INFO: [Vivado 12-8232] Vitis launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 10 00:29:57 2021...

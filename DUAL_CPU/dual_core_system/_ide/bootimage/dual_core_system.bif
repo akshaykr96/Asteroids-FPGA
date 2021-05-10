@@ -1,0 +1,8 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_core_hw/export/dual_core_hw/sw/dual_core_hw/boot/fsbl.elf
+	C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_core/_ide/bitstream/design_1_wrapper.bit
+	C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_core/Debug/dual_core.elf
+	C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\second_core\Debug\second_core.elf
+}

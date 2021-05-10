@@ -1,0 +1,523 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Apr  4 12:53:03 2021
+# Process ID: 22388
+# Current directory: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent27844 C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.xpr
+# Log file: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/vivado.log
+# Journal file: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.xpr
+WARNING: [filemgmt 56-3] IPUserFilesDir: Could not find the directory 'C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.ip_user_files'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:44 ; elapsed = 00:00:24 . Memory (MB): peak = 1099.922 ; gain = 0.000
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd}
+Reading block design file <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:user:myI2STx:1.0 - myI2STx_0
+Adding component instance block -- xilinx.com:user:myPrescaler:1.0 - myPrescaler_0
+Adding component instance block -- xilinx.com:user:mySPIRxTx:1.0 - mySPIRxTx_0
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Adding component instance block -- xilinx.com:user:myPrescaler:1.0 - myPrescaler_1
+Adding component instance block -- xilinx.com:ip:axi_fifo_mm_s:4.2 - axi_fifo_mm_s_0
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - smartconnect_0
+Successfully read diagram <design_1> from block design file <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:26 . Memory (MB): peak = 1114.574 ; gain = 14.652
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:GPU_controller:2.0 GPU_controller_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/GPU_controller_0/S00_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins GPU_controller_0/S00_AXI]
+Slave segment '/GPU_controller_0/S00_AXI/S00_AXI_reg' is being assigned into address space '/processing_system7_0/Data' at <0x43C1_0000 [ 64K ]>.
+regenerate_bd_layout
+validate_bd_design
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+xit::source_ipfile: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1351.805 ; gain = 41.160
+validate_bd_design: Time (s): cpu = 00:01:26 ; elapsed = 00:01:22 . Memory (MB): peak = 1362.168 ; gain = 69.996
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {btns_5bits ( Push buttons ) } Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_0/GPIO]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /axi_gpio_0]
+INFO: [board_rule 100-100] set_property CONFIG.GPIO_BOARD_INTERFACE btns_5bits [get_bd_cells /axi_gpio_0]
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 btns_5bits
+INFO: [BoardRule 102-9] connect_bd_intf_net /btns_5bits /axi_gpio_0/GPIO
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/axi_gpio_0/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_gpio_0/S_AXI]
+Slave segment '/axi_gpio_0/S_AXI/Reg' is being assigned into address space '/processing_system7_0/Data' at <0x4120_0000 [ 64K ]>.
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1}] [get_bd_cells axi_gpio_0]
+endgroup
+delete_bd_objs [get_bd_nets axi_dma_0_mm2s_introut]
+connect_bd_net [get_bd_pins axi_gpio_0/ip2intc_irpt] [get_bd_pins processing_system7_0/IRQ_F2P]
+save_bd_design
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+add_files -fileset constrs_1 -norecurse C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/constrs_1/new/Zedboard-Master.xdc
+add_files -norecurse {C:/Users/khali/Downloads/AST3.0/Drawers.vhd C:/Users/khali/Downloads/AST3.0/Asteroid_graph_animate.vhd C:/Users/khali/Downloads/AST3.0/vga_sync.vhd C:/Users/khali/Downloads/AST3.0/Asteroid_menu.vhd}
+update_compile_order -fileset sources_1
+create_bd_cell -type module -reference Asteroid_graph_animate Asteroid_graph_anima_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+create_bd_cell -type module -reference Asteroid_Menu Asteroid_Menu_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+create_bd_cell -type module -reference vga_sync vga_sync_0
+INFO: [IP_Flow 19-5107] Inferred bus interface 'reset' of definition 'xilinx.com:signal:reset:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-5107] Inferred bus interface 'clk' of definition 'xilinx.com:signal:clock:1.0' (from Xilinx Repository).
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'reset'.
+WARNING: [IP_Flow 19-5661] Bus Interface 'clk' does not have any bus interfaces associated with it.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+create_bd_cell: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1564.512 ; gain = 139.406
+endgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50} CONFIG.MMCM_CLKOUT0_DIVIDE_F {20.000} CONFIG.CLKOUT1_JITTER {151.636}] [get_bd_cells clk_wiz_0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (50 MHz)} Freq {50} Ref_Clk0 {None} Ref_Clk1 {None} Ref_Clk2 {None}}  [get_bd_pins Asteroid_graph_anima_0/clk]
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_clock ( System clock ) } Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /clk_wiz_0]
+INFO: [board_rule 100-100] set_property CONFIG.CLK_IN1_BOARD_INTERFACE sys_clock [get_bd_cells /clk_wiz_0]
+WARNING: [BD 5-670] It is required to provide a frequency value for a user created input clock port. Please use the <-freq_hz $freq_val> argument of the create_bd_port command. ie create_bd_port -dir I -type clk -freq_hz 100000000 clkin
+INFO: [BoardRule 102-10] create_bd_port -dir I sys_clock -type clk
+INFO: [BoardRule 102-5] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+INFO: [BoardRule 102-6] set_property CONFIG.PHASE 0.000 /sys_clock
+INFO: [BoardRule 102-15] connect_bd_net /sys_clock /clk_wiz_0/clk_in1
+INFO: [BoardRule 102-17] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {New External Port (ACTIVE_HIGH)}}  [get_bd_pins clk_wiz_0/reset]
+INFO: [BoardRule 102-10] create_bd_port -dir I reset_rtl -type rst
+INFO: [BoardRule 102-7] set_property CONFIG.POLARITY ACTIVE_HIGH /reset_rtl
+INFO: [BoardRule 102-15] connect_bd_net /reset_rtl /clk_wiz_0/reset
+INFO: [BoardRule 102-19] set_property CONFIG.POLARITY ACTIVE_HIGH /reset_rtl
+WARNING: [BoardRule 102-1] Board automation did not generate location constraint for /clk_wiz_0/reset. Users may need to specify the location constraint manually.
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (50 MHz)} Freq {50} Ref_Clk0 {None} Ref_Clk1 {None} Ref_Clk2 {None}}  [get_bd_pins vga_sync_0/clk]
+endgroup
+delete_bd_objs [get_bd_nets sys_clock_1] [get_bd_ports sys_clock]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_pins rst_clk_wiz_0_50M/ext_reset_in]
+delete_bd_objs [get_bd_nets processing_system7_0_FCLK_CLK0]
+connect_bd_net [get_bd_pins rst_ps7_0_100M/slowest_sync_clk] [get_bd_pins clk_wiz_0/clk_out1]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins axi_dma_0/m_axi_mm2s_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins axi_dma_0/m_axi_sg_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins axi_dma_0/s_axi_lite_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins axi_fifo_mm_s_0/s_axi_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins axi_gpio_0/s_axi_aclk]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sys_clock ( System clock ) } Manual_Source {Auto}}  [get_bd_pins clk_wiz_0/clk_in1]
+INFO: [board_rule 100-100] set_property CONFIG.CLK_IN1_BOARD_INTERFACE sys_clock [get_bd_cells /clk_wiz_0]
+WARNING: [BD 5-670] It is required to provide a frequency value for a user created input clock port. Please use the <-freq_hz $freq_val> argument of the create_bd_port command. ie create_bd_port -dir I -type clk -freq_hz 100000000 clkin
+INFO: [BoardRule 102-10] create_bd_port -dir I sys_clock -type clk
+INFO: [BoardRule 102-5] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+INFO: [BoardRule 102-6] set_property CONFIG.PHASE 0.000 /sys_clock
+INFO: [BoardRule 102-15] connect_bd_net /sys_clock /clk_wiz_0/clk_in1
+INFO: [BoardRule 102-17] set_property CONFIG.FREQ_HZ 100000000 /sys_clock
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins GPU_controller_0/s00_axi_aclk]
+INFO: [BD 5-455] Automation on '/myI2STx_0/s00_axis_aclk' will not be run, since it is obsolete due to previously run automations
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins myPrescaler_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins myPrescaler_1/clk]
+INFO: [BD 5-455] Automation on '/mySPIRxTx_0/axis_aclk' will not be run, since it is obsolete due to previously run automations
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins processing_system7_0/S_AXI_GP0_ACLK]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins ps7_0_axi_periph/ACLK]
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M00_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M01_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M02_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/M03_ACLK' will not be run, since it is obsolete due to previously run automations
+INFO: [BD 5-455] Automation on '/ps7_0_axi_periph/S00_ACLK' will not be run, since it is obsolete due to previously run automations
+endgroup
+delete_bd_objs [get_bd_nets sys_clock_1]
+delete_bd_objs [get_bd_ports sys_clock]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0]
+set_property location {5 1607 285} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {5 1615 304} [get_bd_cells Asteroid_graph_anima_0]
+connect_bd_net [get_bd_pins GPU_controller_0/ship_x] [get_bd_pins Asteroid_graph_anima_0/ball_x]
+connect_bd_net [get_bd_pins GPU_controller_0/ship_x] [get_bd_pins Asteroid_graph_anima_0/ball_y]
+delete_bd_objs [get_bd_nets GPU_controller_0_ship_x]
+connect_bd_net [get_bd_pins GPU_controller_0/ship_x] [get_bd_pins Asteroid_graph_anima_0/ball_x]
+connect_bd_net [get_bd_pins GPU_controller_0/ship_y] [get_bd_pins Asteroid_graph_anima_0/ball_y]
+connect_bd_net [get_bd_pins GPU_controller_0/as1_x] [get_bd_pins Asteroid_graph_anima_0/as1_x]
+connect_bd_net [get_bd_pins GPU_controller_0/as1_y] [get_bd_pins Asteroid_graph_anima_0/as1_y]
+connect_bd_net [get_bd_pins GPU_controller_0/as2_x] [get_bd_pins Asteroid_graph_anima_0/as2_x]
+connect_bd_net [get_bd_pins GPU_controller_0/as2_y] [get_bd_pins Asteroid_graph_anima_0/as2_y]
+set_property location {5 1625 357} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {5 1625 363} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {5 1624 362} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {5 1624 350} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {5 1624 348} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {5 1624 335} [get_bd_cells Asteroid_graph_anima_0]
+connect_bd_net [get_bd_pins GPU_controller_0/as3_x] [get_bd_pins Asteroid_graph_anima_0/as3_x]
+connect_bd_net [get_bd_pins GPU_controller_0/as3_y] [get_bd_pins Asteroid_graph_anima_0/as3_y]
+connect_bd_net [get_bd_pins GPU_controller_0/as4_x] [get_bd_pins Asteroid_graph_anima_0/as4_x]
+connect_bd_net [get_bd_pins GPU_controller_0/as4_y] [get_bd_pins Asteroid_graph_anima_0/as4_y]
+connect_bd_net [get_bd_pins GPU_controller_0/as5_x] [get_bd_pins Asteroid_graph_anima_0/as5_x]
+connect_bd_net [get_bd_pins GPU_controller_0/as5_y] [get_bd_pins Asteroid_graph_anima_0/as5_y]
+connect_bd_net [get_bd_pins GPU_controller_0/fire1_x] [get_bd_pins Asteroid_graph_anima_0/efire1_x]
+connect_bd_net [get_bd_pins GPU_controller_0/fire1_y] [get_bd_pins Asteroid_graph_anima_0/efire1_y]
+connect_bd_net [get_bd_pins GPU_controller_0/fire2_x] [get_bd_pins Asteroid_graph_anima_0/efire2_x]
+connect_bd_net [get_bd_pins GPU_controller_0/fire2_y] [get_bd_pins Asteroid_graph_anima_0/efire2_y]
+connect_bd_net [get_bd_pins GPU_controller_0/fire3_x] [get_bd_pins Asteroid_graph_anima_0/efire3_x]
+connect_bd_net [get_bd_pins GPU_controller_0/fire3_y] [get_bd_pins Asteroid_graph_anima_0/efire3_y]
+connect_bd_net [get_bd_pins GPU_controller_0/sauc_x] [get_bd_pins Asteroid_graph_anima_0/sauc_x]
+connect_bd_net [get_bd_pins GPU_controller_0/sauc_y] [get_bd_pins Asteroid_graph_anima_0/sauc_y]
+connect_bd_net [get_bd_pins GPU_controller_0/efire1_x] [get_bd_pins Asteroid_graph_anima_0/fire1_x]
+connect_bd_net [get_bd_pins GPU_controller_0/efire1_y] [get_bd_pins Asteroid_graph_anima_0/fire1_y]
+connect_bd_net [get_bd_pins GPU_controller_0/efire2_x] [get_bd_pins Asteroid_graph_anima_0/fire2_x]
+connect_bd_net [get_bd_pins GPU_controller_0/efire2_y] [get_bd_pins Asteroid_graph_anima_0/fire2_y]
+connect_bd_net [get_bd_pins GPU_controller_0/efire3_x] [get_bd_pins Asteroid_graph_anima_0/fire3_x]
+connect_bd_net [get_bd_pins GPU_controller_0/efire3_y] [get_bd_pins Asteroid_graph_anima_0/fire3_y]
+connect_bd_net [get_bd_pins GPU_controller_0/score] [get_bd_pins Asteroid_graph_anima_0/pixel_x]
+connect_bd_net [get_bd_pins GPU_controller_0/lives] [get_bd_pins Asteroid_graph_anima_0/pixel_y]
+connect_bd_net [get_bd_pins GPU_controller_0/menu_control] [get_bd_pins Asteroid_graph_anima_0/score]
+connect_bd_net [get_bd_pins GPU_controller_0/sound_setting] [get_bd_pins Asteroid_graph_anima_0/lives]
+delete_bd_objs [get_bd_nets GPU_controller_0_sound_setting]
+delete_bd_objs [get_bd_nets GPU_controller_0_fire1_x]
+delete_bd_objs [get_bd_nets GPU_controller_0_fire3_x] [get_bd_nets GPU_controller_0_efire3_x] [get_bd_nets GPU_controller_0_efire3_y] [get_bd_nets GPU_controller_0_fire3_y] [get_bd_nets GPU_controller_0_score] [get_bd_nets GPU_controller_0_efire1_x] [get_bd_nets GPU_controller_0_efire1_y] [get_bd_nets GPU_controller_0_fire2_x] [get_bd_nets GPU_controller_0_fire2_y] [get_bd_nets GPU_controller_0_lives] [get_bd_nets GPU_controller_0_efire2_x] [get_bd_nets GPU_controller_0_efire2_y] [get_bd_nets GPU_controller_0_fire1_y] [get_bd_nets GPU_controller_0_menu_control]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/efire1_x] [get_bd_pins GPU_controller_0/efire1_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/efire1_y] [get_bd_pins GPU_controller_0/efire1_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/efire2_x] [get_bd_pins GPU_controller_0/efire2_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/efire2_y] [get_bd_pins GPU_controller_0/efire2_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/efire3_x] [get_bd_pins GPU_controller_0/efire3_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/efire3_y] [get_bd_pins GPU_controller_0/efire3_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/fire1_x] [get_bd_pins GPU_controller_0/fire1_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/fire1_y] [get_bd_pins GPU_controller_0/fire1_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/fire2_x] [get_bd_pins GPU_controller_0/fire2_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/fire2_y] [get_bd_pins GPU_controller_0/fire2_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/fire3_x] [get_bd_pins GPU_controller_0/fire3_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/fire3_y] [get_bd_pins GPU_controller_0/fire3_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/score] [get_bd_pins GPU_controller_0/score]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/lives] [get_bd_pins GPU_controller_0/lives]
+delete_bd_objs [get_bd_nets clk_wiz_0_clk_out1]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (50 MHz)} Freq {50} Ref_Clk0 {None} Ref_Clk1 {None} Ref_Clk2 {None}}  [get_bd_pins Asteroid_graph_anima_0/clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (50 MHz)} Freq {50} Ref_Clk0 {None} Ref_Clk1 {None} Ref_Clk2 {None}}  [get_bd_pins rst_clk_wiz_0_50M/slowest_sync_clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/clk_wiz_0/clk_out1 (50 MHz)} Freq {50} Ref_Clk0 {None} Ref_Clk1 {None} Ref_Clk2 {None}}  [get_bd_pins vga_sync_0/clk]
+endgroup
+delete_bd_objs [get_bd_nets reset_rtl_1]
+connect_bd_net [get_bd_pins clk_wiz_0/reset] [get_bd_pins processing_system7_0/FCLK_RESET0_N]
+regenerate_bd_layout
+regenerate_bd_layout -routing
+regenerate_bd_layout
+set_property location {5 1748 290} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {4 1539 303} [get_bd_cells Asteroid_graph_anima_0]
+set_property location {4 1486 1007} [get_bd_cells Asteroid_Menu_0]
+set_property location {4 1493 815} [get_bd_cells Asteroid_Menu_0]
+connect_bd_net [get_bd_pins GPU_controller_0/menu_control] [get_bd_pins Asteroid_Menu_0/menu_control]
+connect_bd_net [get_bd_pins GPU_controller_0/sound_setting] [get_bd_pins Asteroid_Menu_0/sound_setting]
+connect_bd_net [get_bd_pins GPU_controller_0/diff_setting] [get_bd_pins Asteroid_Menu_0/diff_setting]
+connect_bd_net [get_bd_pins GPU_controller_0/high_score] [get_bd_pins Asteroid_Menu_0/high_score]
+connect_bd_net [get_bd_pins GPU_controller_0/game_on] [get_bd_pins Asteroid_graph_anima_0/menu_on]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/menu_rgb] [get_bd_pins Asteroid_Menu_0/menu_rgb]
+delete_bd_objs [get_bd_nets GPU_controller_0_game_on]
+connect_bd_net [get_bd_pins GPU_controller_0/game_on] [get_bd_pins Asteroid_Menu_0/menu_on]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/menu_on] [get_bd_pins Asteroid_Menu_0/game_on]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/stars] [get_bd_pins Asteroid_Menu_0/stars]
+set_property location {5 1906 492} [get_bd_cells vga_sync_0]
+connect_bd_net [get_bd_pins Asteroid_Menu_0/pix_x] [get_bd_pins vga_sync_0/pixel_x]
+connect_bd_net [get_bd_pins Asteroid_Menu_0/pix_y] [get_bd_pins vga_sync_0/pixel_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/pixel_x] [get_bd_pins vga_sync_0/pixel_x]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/pixel_y] [get_bd_pins vga_sync_0/pixel_y]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/video_on] [get_bd_pins vga_sync_0/video_on]
+startgroup
+make_bd_pins_external  [get_bd_pins vga_sync_0/hsync]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins vga_sync_0/vsync]
+endgroup
+set_property name VGA_HS [get_bd_ports hsync_0]
+set_property name VGA_VS [get_bd_ports vsync_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_1
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_2
+endgroup
+set_property location {7 2398 301} [get_bd_cells xlslice_0]
+set_property location {7 2539 175} [get_bd_cells xlslice_1]
+set_property location {6 2591 20} [get_bd_cells xlslice_2]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/graph_rgb] [get_bd_pins xlslice_2/Din]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/graph_rgb] [get_bd_pins xlslice_1/Din]
+connect_bd_net [get_bd_pins Asteroid_graph_anima_0/graph_rgb] [get_bd_pins xlslice_0/Din]
+startgroup
+set_property -dict [list CONFIG.DIN_WIDTH {12}] [get_bd_cells xlslice_2]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_WIDTH {12}] [get_bd_cells xlslice_1]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_WIDTH {12}] [get_bd_cells xlslice_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DOUT_WIDTH {4}] [get_bd_cells xlslice_2]
+endgroup
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.DOUT_WIDTH {4}] [get_bd_cells xlslice_1]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_FROM {11} CONFIG.DOUT_WIDTH {12}] [get_bd_cells xlslice_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_FROM {0} CONFIG.DOUT_WIDTH {1}] [get_bd_cells xlslice_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_FROM {3} CONFIG.DOUT_WIDTH {4}] [get_bd_cells xlslice_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_FROM {3}] [get_bd_cells xlslice_1]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_FROM {3}] [get_bd_cells xlslice_2]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins xlslice_2/Dout]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins xlslice_1/Dout]
+endgroup
+startgroup
+make_bd_pins_external  [get_bd_pins xlslice_0/Dout]
+endgroup
+set_property location {5 2562 -1} [get_bd_cells xlslice_1]
+set_property location {5 2552 157} [get_bd_cells xlslice_2]
+set_property location {5 2549 25} [get_bd_cells xlslice_1]
+set_property name VGA_R [get_bd_ports Dout_1]
+set_property name VGA_G [get_bd_ports VGA_R]
+set_property name VGA_B [get_bd_ports Dout_0]
+set_property name VGA_R [get_bd_ports Dout_2]
+set_property location {2861 158} [get_bd_ports VGA_B]
+set_property location {2847 20} [get_bd_ports VGA_G]
+startgroup
+set_property -dict [list CONFIG.DIN_TO {8} CONFIG.DIN_FROM {11} CONFIG.DOUT_WIDTH {4}] [get_bd_cells xlslice_1]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_TO {3} CONFIG.DIN_FROM {7} CONFIG.DOUT_WIDTH {5}] [get_bd_cells xlslice_2]
+endgroup
+startgroup
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_TO {8} CONFIG.DIN_FROM {11} CONFIG.DOUT_WIDTH {4}] [get_bd_cells xlslice_0]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_TO {0} CONFIG.DIN_FROM {3}] [get_bd_cells xlslice_1]
+endgroup
+startgroup
+set_property -dict [list CONFIG.DIN_TO {4} CONFIG.DOUT_WIDTH {4}] [get_bd_cells xlslice_2]
+endgroup
+regenerate_bd_layout
+save_bd_design
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+validate_bd_design
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+xit::source_ipfile: Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1754.488 ; gain = 0.031
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+ERROR: [BD 41-238] Port/Pin property POLARITY does not match between /clk_wiz_0/reset(ACTIVE_HIGH) and /processing_system7_0/FCLK_RESET0_N(ACTIVE_LOW)
+validate_bd_design: Time (s): cpu = 00:01:09 ; elapsed = 00:01:21 . Memory (MB): peak = 1760.426 ; gain = 9.082
+ERROR: [Common 17-39] 'validate_bd_design' failed due to earlier errors.
+startgroup
+set_property -dict [list CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} CONFIG.RESET_TYPE {ACTIVE_LOW} CONFIG.RESET_PORT {resetn}] [get_bd_cells clk_wiz_0]
+WARNING: [BD 41-1684] Pin /clk_wiz_0/reset is now disabled. All connections to this pin have been removed. 
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {/processing_system7_0/FCLK_RESET0_N (ACTIVE_LOW)}}  [get_bd_pins clk_wiz_0/resetn]
+validate_bd_design
+INFO: [Common 17-365] Interrupt caught but 'validate_bd_design' cannot be canceled. Please wait for command to finish.
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+xit::source_ipfile: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1820.234 ; gain = 0.992
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/Asteroid_graph_anima_0/lfsr
+
+validate_bd_design: Time (s): cpu = 00:01:10 ; elapsed = 00:01:11 . Memory (MB): peak = 1826.172 ; gain = 18.203
+INFO: [Common 17-681] Processing pending cancel.
+save_bd_design
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:lfsr_7:1.0 lfsr_7_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/lfsr_7_0/S00_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins lfsr_7_0/S00_AXI]
+Slave segment '/lfsr_7_0/S00_AXI/S00_AXI_reg' is being assigned into address space '/processing_system7_0/Data' at <0x43C2_0000 [ 64K ]>.
+WARNING: [IP_Flow 19-4318] IP-XACT file does not exist: c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo/lfsr_7_1.0/component.xml. It will be created.
+update_ip_catalog -rebuild -scan_changes
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+report_ip_status -name ip_status
+upgrade_ip [get_ips  design_1_lfsr_7_0_0] -log ip_upgrade.log
+Upgrading 'C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/design_1.bd'
+WARNING: [IP_Flow 19-4316] Parameter 'C_S00_AXI_DATA_WIDTH' is no longer present on the upgraded IP 'design_1_lfsr_7_0_0', and cannot be set to '32'
+WARNING: [IP_Flow 19-4316] Parameter 'C_S00_AXI_ADDR_WIDTH' is no longer present on the upgraded IP 'design_1_lfsr_7_0_0', and cannot be set to '5'
+WARNING: [IP_Flow 19-4316] Parameter 'C_S00_AXI_BASEADDR' is no longer present on the upgraded IP 'design_1_lfsr_7_0_0', and cannot be set to '0xFFFFFFFF'
+WARNING: [IP_Flow 19-4316] Parameter 'C_S00_AXI_HIGHADDR' is no longer present on the upgraded IP 'design_1_lfsr_7_0_0', and cannot be set to '0x00000000'
+INFO: [IP_Flow 19-3422] Upgraded design_1_lfsr_7_0_0 (lfsr_7_v1_0 1.0) from revision 7 to revision 1
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'S00_AXI'
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'S00_AXI_CLK'
+WARNING: [IP_Flow 19-4699] Upgrade has removed interface 'S00_AXI_RST'
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'i_clk' (xilinx.com:signal:clock:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'i_rstn' (xilinx.com:signal:reset:1.0)
+WARNING: [IP_Flow 19-4697] Upgrade has added interface 'i_sync_reset' (xilinx.com:signal:reset:1.0)
+WARNING: [IP_Flow 19-3670] Detected external interface differences while upgrading 'design_1_lfsr_7_0_0'.
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_aclk'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_araddr'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_aresetn'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_arprot'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_arready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_arvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_awaddr'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_awprot'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_awready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_awvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_bready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_bresp'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_bvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_rdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_rready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_rresp'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_rvalid'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_wdata'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_wready'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_wstrb'
+WARNING: [IP_Flow 19-4700] Upgrade has removed port 's00_axi_wvalid'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'i_clk'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'i_en'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'i_rstn'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'i_seed'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'i_sync_reset'
+WARNING: [IP_Flow 19-4698] Upgrade has added port 'o_lsfr'
+WARNING: [IP_Flow 19-3298] Detected external port differences while upgrading 'design_1_lfsr_7_0_0'. These changes may impact your design.
+WARNING: [IP_Flow 19-5893] Upgrade has removed address block 'S00_AXI/S00_AXI_reg'
+WARNING: [IP_Flow 19-5891] Detected addressing differences while upgrading 'design_1_lfsr_7_0_0'. These changes may impact your design.
+CRITICAL WARNING: [BD 41-1165] The interface pin 'S00_AXI' with bus definition 'xilinx.com:interface:aximm:1.0' is not found on the upgraded version of the cell '/lfsr_7_0'. Its connection to the interface net 'ps7_0_axi_periph_M04_AXI' has been removed. 
+CRITICAL WARNING: [BD 41-1167] The pin 's00_axi_aclk' is not found on the upgraded version of the cell '/lfsr_7_0'. Its connection to the net 'processing_system7_0_FCLK_CLK0' has been removed.
+CRITICAL WARNING: [BD 41-1167] The pin 's00_axi_aresetn' is not found on the upgraded version of the cell '/lfsr_7_0'. Its connection to the net 'rst_ps7_0_100M_peripheral_aresetn' has been removed.
+CRITICAL WARNING: [BD 41-1173] Cannot restore assignment <0x43C2_0000 [ 64K ]> from slave segment '/lfsr_7_0/S00_AXI/S00_AXI_reg' to address space '/processing_system7_0/Data'. This slave segment no longer exists.
+CRITICAL WARNING: [Coretcl 2-1279] The upgrade of 'design_1_lfsr_7_0_0' has identified issues that may require user intervention. Please review the upgrade log 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_upgrade.log', and verify that the upgraded IP is correctly configured.
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+INFO: [Coretcl 2-1525] Wrote upgrade log to 'C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_upgrade.log'.
+export_ip_user_files -of_objects [get_ips design_1_lfsr_7_0_0] -no_script -sync -force -quiet
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins lfsr_7_0/i_clk]
+delete_bd_objs [get_bd_cells lfsr_7_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:lfsr_7:1.0 lfsr_7_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/processing_system7_0/FCLK_CLK0 (100 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins lfsr_7_0/i_clk]
+delete_bd_objs [get_bd_cells lfsr_7_0]
+save_bd_design
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+update_ip_catalog -rebuild
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/ip_repo'.
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:user:lfsr_7:1.0 lfsr_7_0
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/lfsr_7_0/S00_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins lfsr_7_0/S00_AXI]
+Slave segment '/lfsr_7_0/S00_AXI/S00_AXI_reg' is being assigned into address space '/processing_system7_0/Data' at <0x43C2_0000 [ 64K ]>.
+save_bd_design
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run synth_1
+reset_run design_1_xbar_1_synth_1
+reset_run design_1_smartconnect_0_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+INFO: [Ipptcl 7-1463] No Compatible Board Interface found. Board Tab not created in customize GUI
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+CRITICAL WARNING: [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/Asteroid_graph_anima_0/lfsr
+
+Wrote  : <C:\Users\khali\ENSC_452_git\ENSC_452\DUAL_CPU\dual_cpu.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+VHDL Output written to : c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/synth/design_1.vhd
+VHDL Output written to : c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/sim/design_1.vhd
+VHDL Output written to : c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/hdl/design_1_wrapper.vhd
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+Exporting to file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/hw_handoff/design_1_smartconnect_0_0.hwh
+Generated Block Design Tcl file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/hw_handoff/design_1_smartconnect_0_0_bd.tcl
+Generated Hardware Definition File c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_smartconnect_0_0/bd_0/synth/design_1_smartconnect_0_0.hwdef
+INFO: [BD 41-1029] Generation completed for the IP Integrator block smartconnect_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block GPU_controller_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Asteroid_graph_anima_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block Asteroid_Menu_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block vga_sync_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_clk_wiz_0_50M .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_1 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlslice_2 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block lfsr_7_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+Exporting to file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File c:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.gen/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_GPU_controller_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_auto_pc_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_axi_gpio_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_clk_wiz_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_lfsr_7_0_2
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_rst_clk_wiz_0_50M_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_smartconnect_0_0
+INFO: [IP_Flow 19-7066] Running IP cache check for IP design_1_xbar_1
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = db7e160575667fbe; cache size = 43.140 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_smartconnect_0_0, cache-ID = 0f15ebe0d7eb30c2; cache size = 43.140 MB.
+config_ip_cache: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2097.027 ; gain = 5.438
+[Sun Apr  4 15:00:52 2021] Launched design_1_xbar_1_synth_1, design_1_GPU_controller_0_0_synth_1, design_1_axi_gpio_0_0_synth_1, design_1_rst_clk_wiz_0_50M_0_synth_1, design_1_clk_wiz_0_0_synth_1, design_1_Asteroid_graph_anima_0_0_synth_1, design_1_vga_sync_0_0_synth_1, design_1_Asteroid_Menu_0_0_synth_1, design_1_lfsr_7_0_2_synth_1, synth_1...
+Run output will be captured here:
+design_1_xbar_1_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_xbar_1_synth_1/runme.log
+design_1_GPU_controller_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_GPU_controller_0_0_synth_1/runme.log
+design_1_axi_gpio_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_axi_gpio_0_0_synth_1/runme.log
+design_1_rst_clk_wiz_0_50M_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_rst_clk_wiz_0_50M_0_synth_1/runme.log
+design_1_clk_wiz_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_clk_wiz_0_0_synth_1/runme.log
+design_1_Asteroid_graph_anima_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_Asteroid_graph_anima_0_0_synth_1/runme.log
+design_1_vga_sync_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_vga_sync_0_0_synth_1/runme.log
+design_1_Asteroid_Menu_0_0_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_Asteroid_Menu_0_0_synth_1/runme.log
+design_1_lfsr_7_0_2_synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/design_1_lfsr_7_0_2_synth_1/runme.log
+synth_1: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/synth_1/runme.log
+[Sun Apr  4 15:00:53 2021] Launched impl_1...
+Run output will be captured here: C:/Users/khali/ENSC_452_git/ENSC_452/DUAL_CPU/dual_cpu.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:01:07 ; elapsed = 00:01:34 . Memory (MB): peak = 2097.027 ; gain = 202.691
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 2240.289 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1025 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'design_1_i/clk_wiz_0/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+INFO: [Timing 38-478] Restoring timing data from binary archive.
